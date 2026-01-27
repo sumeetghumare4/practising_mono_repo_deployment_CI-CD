@@ -21,7 +21,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile.backend
           push: true
-          tags: mono_repo/todo-app-backend:${{ github.sha }}
+          tags: sumeetghumare/todo-app-backend:${{ github.sha }}
 
       ## Step to deploy this to a VM
     
