@@ -24,14 +24,5 @@ jobs:
           tags: sumeetghumare/todo-app-websocket:${{ github.sha }}
 
       ## Step to deploy this to a VM
-      - name: Deploy to the VM
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-          mkdir -p /home/runner/.ssh
-          ls /home/runner/.ssh
-          touch /home/runner/.ssh/known_hosts
-          echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts
-          chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@192.168.31.241 -t "docker stop user_backend && docker run --name user_backend -d -p 8080:8080 sumeetghumare/todo-app-backend:${{ github.sha }}"
       
     
